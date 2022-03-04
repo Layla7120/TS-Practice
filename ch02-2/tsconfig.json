@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    //노드js에서 동작 
+    "module": "commonjs",  
+    //chance 패키지가 동작하려면 true로 설정
+    "esModuleInterop": true,
+    //트랜스파일할 대상의 자바스크립트 버전
+    "target": "es2015",    
+    //module:commonjs = node / module:amd = classic
+    "moduleResolution": "node",
+    //"." - current directory
+    "baseUrl": ".",
+    //baseUrl을 기준으로 했을 때 그 하위 디렉터리의 이름 
+    "outDir": "dist",
+    //트랜스파일 디렉터리에는 .js파일 이외에도 .js.map파일이 만들어짐 - 디버깅할 때 사용
+    "sourceMap": true,
+    //생성기 구문이 정상적으로 동작하려면 true로 해야함 
+    "downlevelIteration": true,
+    //any type를 사용할 경우 문제가 있다는 것을 알려줌 
+    "noImplicitAny": false,
+    // import문에서 from 부분을 해석할 때 찾아야 하는 디렉터리를 설정 
+    "paths": { "*": ["node_modules/*"] }
+  },
+  "include": ["src/**/*"]
+}
