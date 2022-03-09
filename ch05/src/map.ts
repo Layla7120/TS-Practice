@@ -6,3 +6,13 @@ export const map = <T, Q>(array:T[], callback: (value: T, index?: number) => Q):
   }
   return result
 }
+
+import {range} from './range'
+
+let squares:number[] = range(1, 5 + 1)
+  .map((val:number) => val * val)
+console.log(squares)
+
+let names:string[] = range(1, 5 + 1)
+  .map((val, index) => `[${index}]: ${val}`)
+console.log(names)
