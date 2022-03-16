@@ -52,3 +52,34 @@ const newArray2 = R.pipe(
 type NumberToNumberFunc = (number) => number
 const f = (a:number, b:number, c:number):NumberToNumberFunc =>
   (x:number): number => a * x ** 2 + b * x + c
+
+//업그레이드 버전
+const exp = (N:number) => (x:number):number => x ** N
+const square = exp(2)
+
+const f2 = (a:number, b:number, c:number):NumberToNumberFunc =>
+  (x:number):number => R.add(
+    R.add(
+      R.multiply(a)(square(x))
+    )(R.multiply(b)(x)),
+    c
+  )
+
+const quadratic = f2(1, 2, 1)
+const input:number[] = R.range(1, 10 + 1)
+const quadraticResult = R.pipe(
+  R.map(quadratic),
+  R.tap(a => console.log(a))
+)(input)
+
+const input2:number[] = R.range(1, 10 + 1), halfvalue = input[input.length / 2]
+
+const subtractOrAdd = R.pipe(
+  R.map(R.ifElse(
+    R.lte(halfvalue),
+    R.inc, 
+    R.dec
+  )),
+  R.tap(a => console.log(a))
+)
+const result = subtractOrAdd(input2)
