@@ -1,29 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// //dosen't compile back to javascript
-// interface Human{
-//   name:string;
-//   age:number;
-//   gender:string;
-// }
-class Human {
-    constructor(name, age, gender) {
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
+class Block {
+    constructor(index, hash, previousHash, data, timestamp) {
+        this.index = index;
+        this.hash = hash;
+        this.previousHash = previousHash;
+        this.data = data;
+        this.timestamp = timestamp;
     }
 }
-const lynn = new Human("Lynn", 54, "female");
-const person = {
-    name: "jenny",
-    age: 24,
-    gender: "female"
-};
-// const sayHi = (name:string, age:number, gender?:string):string => {
-//   return `hello ${name}, ${age}, you are a ${gender}`
-// }
-const sayHi = (person) => {
-    return `hello ${person.name}, ${person.age}, you are a ${person.gender}`;
-};
-console.log(sayHi(lynn));
+const genesisBlock = new Block(0, "202020202", "", "Hello", 123456);
+let blockchain = [genesisBlock];
+console.log(blockchain);
 //# sourceMappingURL=index.js.map
